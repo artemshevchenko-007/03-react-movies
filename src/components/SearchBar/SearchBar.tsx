@@ -5,19 +5,19 @@ interface SearchBarProps {
   onSubmit: (query: string) => void;
 }
 
-export default function SearchBarProps({ onSubmit }: SearchBarProps) {
-    const handleSubmit = (formData: FormData) => {
-        const search = formData.get("query") as string;
-        const trimmedSearch = search.trim();
-        if (!trimmedSearch) {
-            toast("Please enter your search query.");
-            return;
-        }
+export default function SearchBar({ onSubmit }: SearchBarProps) {
+  const handleSubmit = (formData: FormData) => {
+    const search = formData.get("query") as string;
+    const trimmedSearch = search.trim();
+    if (!trimmedSearch) {
+      toast("Please enter your search query.");
+      return;
+    }
 
-        onSubmit(trimmedSearch);
-    };
+    onSubmit(trimmedSearch);
+  };
 
-    return (
+  return (
     <header className={styles.header}>
       <div className={styles.container}>
         <a
@@ -44,4 +44,4 @@ export default function SearchBarProps({ onSubmit }: SearchBarProps) {
       </div>
     </header>
   );
-};
+}
